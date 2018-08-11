@@ -1,6 +1,8 @@
-package Arreglos;
+package arreglos;
 
-import java.util.Scanner;
+
+
+import javax.swing.JOptionPane;
 
 public class BoletaDeCalificaciones {
 	
@@ -14,7 +16,7 @@ public class BoletaDeCalificaciones {
 	private double promedioGeneral;
 	private int numMaterias;
 	private int numExamenes;
-	private Scanner s;
+	
 	
 	
 	/**
@@ -27,7 +29,6 @@ public class BoletaDeCalificaciones {
 		this.calificacionesDeExamenes = new int [numMaterias] [numExamenes];
 		this.promedios = new double[numMaterias];
 		this.promedioGeneral = 0;
-		this.s = new Scanner(System.in);
 		setMaterias();
 		setCalificacionesDeExamenes();
 		setPromedios();
@@ -53,24 +54,23 @@ public class BoletaDeCalificaciones {
 
 	protected void setMaterias() {
 		for(int i = 0; i < getNumMaterias(); i++){
-			System.out.print("ingrese el nombre de la materia " + (i+1) + ": ");
-			materias[i] = s.nextLine();
-			System.out.println("");
+			materias[i] = JOptionPane.showInputDialog("Ingrese el nombre de la materia " + (i+1) + ": ");
+			
 		};
 	}
 	
 	protected void setCalificacionesDeExamenes() {
 		int materia, examen;
 
-		System.out.println("Ingrese las calificaciones por mareria\n");
 		for(materia = 0; materia < getNumMaterias(); materia++){
-			System.out.println("********************************************************"
-					+ "**********************************\nMateria: " + materias[materia]);
 			for(examen = 0; examen < getNumExamenes(); examen++){
-				System.out.print("Examen " + (examen + 1) + "= ");
-				calificacionesDeExamenes[materia][examen] = s.nextInt();
+				calificacionesDeExamenes[materia][examen] = Integer.parseInt(JOptionPane.showInputDialog("Materia: " +
+			materias[materia]+"\nCalificación Examen " + (examen+1)+ "="));
+				
+				
 			}	
 		}
+		
 	}
 
 	protected void setPromedioGeneral() {

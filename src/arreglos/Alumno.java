@@ -1,4 +1,4 @@
-package Arreglos;
+package arreglos;
 
 public class Alumno {
 	
@@ -64,7 +64,6 @@ public class Alumno {
 		System.out.printf(format,"Materias",':', getNumMaterias());
 		System.out.printf(format,"Examenes",':', getNumExamenes() * getNumMaterias());
 		this.boleta.imprimir();
-	}
-	
+	}	
 
 }

@@ -1,4 +1,4 @@
-package Arreglos;
+package arreglos;
 
 public class ArregloMultiDimencional {
 
